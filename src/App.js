@@ -5,12 +5,16 @@ import BooksList from "./components/BooksList";
 import "./App.css";
 
 function App() {
+  
+  //send prop to AddBook.js 
   const [bookId, setBookId] = useState("");
 
+  //send the props to BooksList.js named as getBookId
   const getBookIdHandler = (id) => {
     console.log("The ID of document to be edited: ", id);
     setBookId(id);
   };
+
   return (
     <>
       <Navbar bg="dark" variant="dark" className="header">
