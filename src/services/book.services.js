@@ -16,7 +16,7 @@ import {
 //books is the name of the collection inside firebase. get collection reference
 const bookCollectionRef = collection(db, "books");
 
-//class of methods Create Read Update Delete
+//class contain list of methods Create Read Update Delete
 class BookDataService {
 
   addBooks = (newBook) => {

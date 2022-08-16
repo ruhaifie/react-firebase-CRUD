@@ -1,20 +1,29 @@
+//react
 import { useState } from "react";
+
+//bootstrap
 import { Container, Navbar, Row, Col } from "react-bootstrap";
+
+//components
 import AddBook from "./components/AddBook";
 import BooksList from "./components/BooksList";
+//CSS
 import "./App.css";
 
 function App() {
-  
+
   //send prop to AddBook.js 
   const [bookId, setBookId] = useState("");
 
   //send the props to BooksList.js named as getBookId
+  //usually term Handler use for button. management tips
   const getBookIdHandler = (id) => {
     console.log("The ID of document to be edited: ", id);
     setBookId(id);
+    console.log({ setBookId });   //{}know where it come from
   };
 
+  //react bootstrap
   return (
     <>
       <Navbar bg="dark" variant="dark" className="header">
@@ -30,6 +39,7 @@ function App() {
           </Col>
         </Row>
       </Container>
+
       <Container>
         <Row>
           <Col>

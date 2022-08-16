@@ -6,27 +6,34 @@ import BookDataService from "../services/book.services";
 
 //receive the props:getBookId from App.js
 const BooksList = ({ getBookId }) => {
+
+  //store inside array state
   const [books, setBooks] = useState([]);
 
-  //when 1st open app grab all books available 
+  //re-run whenever have changes | 1st time run when load 
   useEffect(() => {
     getBooks();
   }, []);
 
+  //update
+  //docs is firebase properties
   //grab all books available 
   const getBooks = async () => {
+    //create instance to store process: fetch data from db using service method
     const data = await BookDataService.getAllBooks();
     console.log(data.docs);
     //update the state. reminder: setState when to update, to use: state eg.console.log(state)
-    //spread operator
+    //spread operator data allBooks & its id into state
     setBooks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-  //since using firebase/API need to use async await
+  //delete
+  //since using firebase/API return promise so need to use async await
   //id as param then pass the id to methods deleteBook()
   const deleteHandler = async (id) => {
+    //delete based on id, firebase do it for us.no need to filter then put back inside array etc
     await BookDataService.deleteBook(id);
-    //refresh list
+    //refresh list, trigger above func & useEffect()
     getBooks();
   };
 
