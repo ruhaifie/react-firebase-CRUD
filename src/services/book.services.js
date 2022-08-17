@@ -50,3 +50,18 @@ class BookDataService {
 }
 
 export default new BookDataService();
+
+/**
+
+## firebase 🔥
+npm run build //before deployed
+npm i firebase-tools -D     //within this file scope not global
+firebase deploy --only hosting
+- if not using ANY framework then
+* ? Configure as a single-page app (rewrite all urls to /index.html)? No
+- Make sure your public folder (define in your firebase.json) ‘dist’ containing the index.html hasn’t been modified by firebase init command, if yes replace it with your original project index.html
+if ter replace, just type: npm run build again, then firebase init. 
+dont replace
+* ? File build/index.html already exists. Overwrite? No 
+
+ */
